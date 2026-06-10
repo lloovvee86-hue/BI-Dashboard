@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pulmuone eCS Partner Dashboard Hub</title>
+    
+    <!-- PWA Support Configuration -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#79b928">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="풀무원 eCS">
+    <link rel="apple-touch-icon" href="풀무원.png">
+
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts for modern typography -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css">
@@ -33,7 +42,7 @@
             <div class="external-link">대시보드 보기 ↗</div>
         </a>
 
-        <a href="https://app.powerbi.com/view?r=eyJrIjoiOThjYzVmZmYtMjg1ZC00ZDlmLWI4N2UtYjQ2ODhkYmY0N2IxIiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D" target="_blank" class="card" style="animation-delay: 0.3s;">
+        <a href="https://app.powerbi.com/view?r=eyJrIjoiMjQyMjViOWUtNTE3Ni00YmExLWI0YzctYzExYjZhMGQyZGFlIiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D" target="_blank" class="card" style="animation-delay: 0.3s;">
             <div class="card-icon">🥟</div>
             <h2 class="card-title">푸르온</h2>
             <p class="card-desc">26년 Q1 VOC 29건 (전년비 42% 대폭 감소). 원료이물(39%) 관리 집중.</p>
@@ -105,8 +114,23 @@
         <p>&copy; 2026 Pulmuone Food Safety Team. All rights reserved.</p>
     </footer>
 
+    <!-- PWA Installation Floating Banner Markup -->
+    <div id="pwa-install-banner" class="pwa-banner">
+        <div class="pwa-banner-content">
+            <div class="pwa-icon">📱</div>
+            <div class="pwa-text">
+                <h3>풀무원 eCS 자체 앱 설치</h3>
+                <p>바탕화면에 설치하여 실시간 품질 Alert와 대시보드를 더 빠르고 편리하게 이용하세요!</p>
+            </div>
+        </div>
+        <div class="pwa-actions">
+            <button id="pwa-btn-install" class="pwa-btn primary">앱 설치</button>
+            <button id="pwa-btn-close" class="pwa-btn secondary">닫기</button>
+        </div>
+    </div>
+
     <script>
-        // Lighting effect on cards
+        // 1. Lighting effect on cards
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
@@ -115,6 +139,63 @@
                 card.style.setProperty('--x', `${x}px`);
                 card.style.setProperty('--y', `${y}px`);
             });
+        });
+
+        // 2. Service Worker Registration (PWA 두뇌 구동)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((reg) => {
+                        console.log('🎉 [PWA] 서비스 워커 등록 완료! 범위:', reg.scope);
+                    })
+                    .catch((err) => {
+                        console.error('❌ [PWA] 서비스 워커 등록 실패:', err);
+                    });
+            });
+        }
+
+        // 3. PWA Installation Event Handler (지능형 설치 유도 배너)
+        let deferredPrompt;
+        const installBanner = document.getElementById('pwa-install-banner');
+        const btnInstall = document.getElementById('pwa-btn-install');
+        const btnClose = document.getElementById('pwa-btn-close');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // 브라우저 기본 설치 팝업 방지
+            e.preventDefault();
+            // 이벤트 임시 저장
+            deferredPrompt = e;
+            
+            // 사용자가 이전에 닫은 적이 없다면 설치 권장 배너 띄우기
+            if (localStorage.getItem('pwa-banner-closed') !== 'true') {
+                setTimeout(() => {
+                    installBanner.classList.add('show');
+                }, 1500); // 1.5초 후 스르륵 올라오는 프리미엄 모션
+            }
+        });
+
+        btnInstall.addEventListener('click', () => {
+            if (!deferredPrompt) return;
+            
+            // 브라우저 설치 다이얼로그 호출
+            deferredPrompt.prompt();
+            
+            // 사용자 선택 결과 추적
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('🎉 유저가 풀무원 eCS PWA 앱 설치를 승인하였습니다!');
+                } else {
+                    console.log('😢 유저가 PWA 앱 설치를 취소하였습니다.');
+                }
+                deferredPrompt = null;
+                installBanner.classList.remove('show');
+            });
+        });
+
+        // 배너 닫기 버튼 이벤트 (로컬 저장소에 저장하여 재노출 방지)
+        btnClose.addEventListener('click', () => {
+            installBanner.classList.remove('show');
+            localStorage.setItem('pwa-banner-closed', 'true');
         });
     </script>
 </body>

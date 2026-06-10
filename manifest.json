@@ -1,0 +1,22 @@
+{
+  "name": "Pulmuone eCS Partner Dashboard Hub",
+  "short_name": "풀무원 eCS",
+  "description": "협력기업별 Power BI 데이터 분석 대시보드 시스템",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f3f7f2",
+  "theme_color": "#90d200",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./풀무원.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./풀무원.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
