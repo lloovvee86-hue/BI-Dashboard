@@ -1,0 +1,16 @@
+- **지엠에프**: `https://app.powerbi.com/view?r=eyJrIjoiNzY1MDhlMzctYTQxOC00YTQwLWE4OTQtZDI1ZjNiOGMzZjdlIiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **우리델리카**: `https://app.powerbi.com/view?r=eyJrIjoiYWVkZjgxZjAtYjZmNS00YjliLWJiNzAtNDdlYzI2MDQwYjI0IiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **푸르온**: `https://app.powerbi.com/view?r=eyJrIjoiZTdiYmNmOTUtMDA3Yi00MTNjLTk0YjctMTMxYmIxNjdhOTAzIiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **세진식품**: `https://app.powerbi.com/view?r=eyJrIjoiMDFmZWVkNWUtY2QxZC00YTRiLTk0ZmYtZDUxZDQ5YmYyOWY4IiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **우천식품(유부)**: `https://app.powerbi.com/view?r=eyJrIjoiYTgyZDBlZWItODdkNS00ODRkLTk0YmYtMWUyNjQ0NzEwMjliIiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **엄지식품**: `https://app.powerbi.com/view?r=eyJrIjoiMjRlOGYwMzMtYmViOC00YWI1LTg2OGEtZTBlZGNmNWFiNTQ4IiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **(주)우천식품(두부)**: `https://app.powerbi.com/view?r=eyJrIjoiNDQ2NTVmODEtNGVlNS00OGQ0LTgwYjktOGIyMzA3NmQ4M2M1IiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **삼양스퀘어밀**: `https://app.powerbi.com/view?r=eyJrIjoiMTZhMmY4ODAtMGE2ZS00Y2RkLWE3YmQtZDkwN2E0N2EzNmVlIiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **한맥홈푸드**: `https://app.powerbi.com/view?r=eyJrIjoiMzk3ZGZmN2ItMTRkNS00YjM0LWJiNTktMzFjNzkwYzY4MGU1IiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **늘찬애**: `https://app.powerbi.com/view?r=eyJrIjoiZGVkNjU5NmUtZWRkNy00ZjljLTg3YzAtNzQ2ZDRkNjE3ZWU4IiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **풀잎라인**: `https://app.powerbi.com/view?r=eyJrIjoiZmQyYWVhODMtZTNjNy00OGEwLWI5ZDQtODU2Mzk4NjY5YjU4IiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **한우물**: `https://app.powerbi.com/view?r=eyJrIjoiNzk2MDBiOGMtZDJkNC00ODIyLWFkZGYtOGNiYTU1MjRhODczIiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **으뜸농산**: `https://app.powerbi.com/view?r=eyJrIjoiMjg4ODczOGMtZWM3Yy00MjFlLTllZDctMDIwMTM2YTFkYzIxIiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **우양 서천공장**: `https://app.powerbi.com/view?r=eyJrIjoiNDMwMDRlYzktMWQ3ZS00NTgwLThkNjUtYTZjNTdjNGJlMmFjIiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **김치나라**: `https://app.powerbi.com/view?r=eyJrIjoiZGQ3N2ZiMjAtOTQ0NS00ZDA3LWI0MDktNDE1YmE5ZjhjYzY3IiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
+- **에스지푸드(양명)**: `https://app.powerbi.com/view?r=eyJrIjoiOTBkOGY5NDMtZjY1MC00ZDViLWEzZWYtMzJlYjNiNTliMzc1IiwidCI6ImUyMmU2OTFhLWM3M2ItNGRkMC1iN2I4LTIwZDUzNzI4MTFhZSIsImMiOjEwfQ%3D%3D`
