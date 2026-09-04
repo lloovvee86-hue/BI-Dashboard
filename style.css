@@ -1,13 +1,66 @@
 /* Premium Design System for Pulmuone eCS Dashboard Hub */
 :root {
-    --primary-color: #79b928; /* Pulmuone Green */
+    /* --- Light Mode (Default - Fresh & Natural Pulmuone Style) --- */
+    --primary-color: #5d9319; /* 풀무원 시그니처 내추럴 그린 (가독성 높은 딥 그린) */
+    --primary-hover: #4a7514;
+    --secondary-color: #3b5f0f;
+    --bg-color: #f5f8f2; /* 화사하고 자연스러운 에코 틴트 배경 */
+    --bg-gradient: 
+        radial-gradient(circle at 15% 15%, rgba(121, 185, 40, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(93, 147, 25, 0.08) 0%, transparent 50%);
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --card-hover-bg: #ffffff;
+    --text-primary: #1e293b; /* 가독성 높은 짙은 슬레이트 차콜 */
+    --text-secondary: #64748b; /* 부드럽고 선명한 서브 텍스트 */
+    --accent-glow: rgba(93, 147, 25, 0.18);
+    --glass-border: rgba(93, 147, 25, 0.14);
+    --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 4px 10px -2px rgba(93, 147, 25, 0.04);
+    --card-hover-shadow: 0 20px 35px -8px rgba(93, 147, 25, 0.18), 0 8px 16px -4px rgba(0, 0, 0, 0.06);
+    --icon-bg: rgba(93, 147, 25, 0.1);
+    --icon-hover-bg: var(--primary-color);
+    --logo-filter: none; /* 풀무원 정품 고유 컬러 그대로 표시 */
+    --title-gradient: linear-gradient(135deg, #0f172a 20%, #2e4a11 60%, var(--primary-color) 100%);
+    --pwa-banner-bg: rgba(255, 255, 255, 0.96);
+    --pwa-banner-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 0 20px rgba(93, 147, 25, 0.15);
+    --pwa-btn-secondary-bg: #f1f5f9;
+    --pwa-btn-secondary-color: #475569;
+    --scrollbar-track: #eef3e8;
+    --scrollbar-thumb: #cbd5e1;
+    --scrollbar-thumb-hover: #94a3b8;
+    --toggle-bg: rgba(255, 255, 255, 0.85);
+    --toggle-border: rgba(93, 147, 25, 0.2);
+}
+
+/* --- Dark Mode (Optional Switch) --- */
+[data-theme="dark"] {
+    --primary-color: #79b928;
+    --primary-hover: #8fd033;
     --secondary-color: #5d8a1e;
     --bg-color: #0f172a;
+    --bg-gradient: 
+        radial-gradient(circle at 20% 20%, rgba(121, 185, 40, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(121, 185, 40, 0.05) 0%, transparent 40%);
     --card-bg: rgba(30, 41, 59, 0.7);
+    --card-hover-bg: rgba(30, 41, 59, 0.95);
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --accent-glow: rgba(121, 185, 40, 0.3);
     --glass-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    --card-hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.45), 0 0 20px var(--accent-glow);
+    --icon-bg: rgba(121, 185, 40, 0.1);
+    --icon-hover-bg: var(--primary-color);
+    --logo-filter: brightness(0) invert(1);
+    --title-gradient: linear-gradient(to right, #ffffff, var(--primary-color));
+    --pwa-banner-bg: rgba(30, 41, 59, 0.95);
+    --pwa-banner-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+    --pwa-btn-secondary-bg: rgba(255, 255, 255, 0.1);
+    --pwa-btn-secondary-color: var(--text-secondary);
+    --scrollbar-track: #0f172a;
+    --scrollbar-thumb: #1e293b;
+    --scrollbar-thumb-hover: #334155;
+    --toggle-bg: rgba(30, 41, 59, 0.8);
+    --toggle-border: rgba(255, 255, 255, 0.15);
 }
 
 * {
@@ -25,42 +78,85 @@ body {
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
-    background-image: 
-        radial-gradient(circle at 20% 20%, rgba(121, 185, 40, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(121, 185, 40, 0.05) 0%, transparent 40%);
+    background-image: var(--bg-gradient);
+    background-attachment: fixed;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 header {
     width: 100%;
-    padding: 4rem 2rem 2rem;
+    padding: 3.5rem 2rem 2rem;
     text-align: center;
     max-width: 1600px;
+    position: relative;
+}
+
+.header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 1.5rem;
 }
 
 .logo-container {
-    margin-bottom: 1.5rem;
     animation: fadeInDown 0.8s ease-out;
 }
 
 .pulmuone-logo {
-    height: 40px;
-    filter: brightness(0) invert(1);
+    height: 44px;
+    filter: var(--logo-filter);
+    transition: filter 0.3s ease;
+}
+
+/* 테마 전환 토글 버튼 (라이트/다크 모드 지원) */
+.theme-toggle {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--toggle-bg);
+    border: 1px solid var(--toggle-border);
+    padding: 0.5rem 1.1rem;
+    border-radius: 9999px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+.theme-icon {
+    font-size: 1.1rem;
+    line-height: 1;
 }
 
 h1 {
     font-size: 2.5rem;
     font-weight: 800;
-    background: linear-gradient(to right, #fff, var(--primary-color));
+    background: var(--title-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
+    transition: all 0.4s ease;
 }
 
 .subtitle {
     color: var(--text-secondary);
     font-size: 1.1rem;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .container {
@@ -78,8 +174,8 @@ h1 {
     border: 1px solid var(--glass-border);
     border-radius: 24px;
     padding: 2rem;
-    backdrop-filter: blur(12px);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    backdrop-filter: blur(14px);
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -88,6 +184,7 @@ h1 {
     align-items: flex-start;
     text-decoration: none;
     color: inherit;
+    box-shadow: var(--card-shadow);
     animation: fadeInUp 0.6s ease-out backwards;
 }
 
@@ -105,9 +202,10 @@ h1 {
 }
 
 .card:hover {
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-8px) scale(1.02);
     border-color: var(--primary-color);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+    box-shadow: var(--card-hover-shadow);
+    background: var(--card-hover-bg);
 }
 
 .card:hover::before {
@@ -117,20 +215,20 @@ h1 {
 .card-icon {
     width: 56px;
     height: 56px;
-    background: rgba(121, 185, 40, 0.1);
+    background: var(--icon-bg);
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--primary-color);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .card:hover .card-icon {
-    transform: rotate(10deg) scale(1.1);
-    background: var(--primary-color);
+    transform: rotate(8deg) scale(1.1);
+    background: var(--icon-hover-bg);
     color: white;
 }
 
@@ -146,9 +244,10 @@ h1 {
 }
 
 .card-desc {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     color: var(--text-secondary);
-    line-height: 1.5;
+    line-height: 1.55;
+    font-weight: 400;
 }
 
 .external-link {
@@ -157,15 +256,16 @@ h1 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.88rem;
+    font-weight: 700;
     color: var(--primary-color);
-    opacity: 0.7;
-    transition: opacity 0.3s;
+    opacity: 0.85;
+    transition: opacity 0.3s, transform 0.2s;
 }
 
 .card:hover .external-link {
     opacity: 1;
+    transform: translateX(4px);
 }
 
 /* Animations */
@@ -205,14 +305,14 @@ footer {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: var(--bg-color);
+    background: var(--scrollbar-track);
 }
 ::-webkit-scrollbar-thumb {
-    background: #1e293b;
+    background: var(--scrollbar-thumb);
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #334155;
+    background: var(--scrollbar-thumb-hover);
 }
 
 /* PWA Installation Floating Banner */
@@ -223,11 +323,11 @@ footer {
     transform: translateX(-50%) translateY(120%);
     width: calc(100% - 48px);
     max-width: 480px;
-    background: rgba(30, 41, 59, 0.95);
+    background: var(--pwa-banner-bg);
     border: 1px solid var(--primary-color);
     border-radius: 20px;
     padding: 1.25rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+    box-shadow: var(--pwa-banner-shadow);
     backdrop-filter: blur(16px);
     display: flex;
     flex-direction: column;
@@ -252,7 +352,7 @@ footer {
 
 .pwa-icon {
     font-size: 2.2rem;
-    background: rgba(121, 185, 40, 0.15);
+    background: var(--icon-bg);
     border-radius: 12px;
     padding: 0.5rem;
     display: flex;
@@ -272,7 +372,7 @@ footer {
 }
 
 .pwa-text p {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     color: var(--text-secondary);
     line-height: 1.4;
 }
@@ -299,16 +399,51 @@ footer {
 }
 
 .pwa-btn.primary:hover {
-    background: var(--secondary-color);
+    background: var(--primary-hover);
     box-shadow: 0 0 10px var(--accent-glow);
 }
 
 .pwa-btn.secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-secondary);
+    background: var(--pwa-btn-secondary-bg);
+    color: var(--pwa-btn-secondary-color);
 }
 
 .pwa-btn.secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
+    filter: brightness(0.95);
     color: var(--text-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    header {
+        padding: 2.5rem 1.25rem 1.5rem;
+    }
+
+    .header-top {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .theme-toggle {
+        position: static;
+        transform: none;
+        align-self: flex-end;
+    }
+
+    .theme-toggle:hover {
+        transform: scale(1.05);
+    }
+
+    h1 {
+        font-size: 1.85rem;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+    }
+
+    .container {
+        padding: 1rem;
+        gap: 1.25rem;
+    }
 }

@@ -19,8 +19,14 @@
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <img src="풀무원.png" alt="Pulmuone Logo" class="pulmuone-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/e/e0/Pulmuone_Logo.svg'; this.style.filter='none';">
+        <div class="header-top">
+            <div class="logo-container">
+                <img src="풀무원.png" alt="Pulmuone Logo" class="pulmuone-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/e/e0/Pulmuone_Logo.svg';">
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="화면 모드 전환" title="다크/라이트 모드 전환">
+                <span id="theme-icon" class="theme-icon">🌙</span>
+                <span id="theme-text">다크 모드</span>
+            </button>
         </div>
         <h1>Partner Dashboard Hub</h1>
         <p class="subtitle">협력기업별 Power BI 데이터 분석 대시보드 시스템</p>
@@ -189,6 +195,33 @@
     </div>
 
     <script>
+        // 0. Dark / Light Theme Toggle Management (기본값: 밝은 라이트 모드)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('pmo-dashboard-theme', theme);
+            if (theme === 'dark') {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = '라이트 모드';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = '다크 모드';
+            }
+        }
+
+        // 저장된 테마 불러오기 (기본값은 밝은 라이트 모드)
+        const savedTheme = localStorage.getItem('pmo-dashboard-theme') || 'light';
+        applyTheme(savedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(nextTheme);
+        });
+
         // 1. Lighting effect on cards
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('mousemove', e => {
